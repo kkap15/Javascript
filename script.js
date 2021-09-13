@@ -6,7 +6,6 @@ function save_name()  {
 function find_userId(name) {
     name.toString();
     var name = name.toLocaleLowerCase();
-    //console.log(name);
     fetch("https://jsonplaceholder.typicode.com/users")
     .then((response) => response.json())
     .then(data => {
@@ -73,15 +72,9 @@ function find_tasks(userId) {
                     titles;
             }
         } 
-        //console.log(titles);
-        //console.log(completedTasks);
-        //console.log(todoTasks);
-       
     });
 }
 module.exports = {
     getCompletedTasks,
     getTodoTasks,
-    find_userId,
-    save_name
 }
