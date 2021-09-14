@@ -9,6 +9,7 @@ function find_userId(name) {
     fetch("https://jsonplaceholder.typicode.com/users")
     .then((response) => response.json())
     .then(data => {
+        var userId = 0;
         for (var i = 0; i < data.length; ++i) {
             var obj = data[i];
             var username = obj.username;
@@ -18,7 +19,11 @@ function find_userId(name) {
                 userId = obj.id.toString();
             }
         }
-        find_tasks(userId);
+        if (userId == undefined || userId == 0) {
+            window.alert("The username does not exist.");
+        } else {
+            find_tasks(userId);
+        }
     });
     
     event.preventDefault();
